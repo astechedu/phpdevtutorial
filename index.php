@@ -5,7 +5,7 @@
 <html>	
 <head>
 	<meta charset="utf-8">	
-	<title>Login System Without Database: login</title>
+	<title>Login System Without Database</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
