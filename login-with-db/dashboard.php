@@ -1,48 +1,34 @@
 <?php
-
 //echo "<pre>";print_r($_POST);
 //echo "<pre>"; print_r($_POST);
 //echo "<pre>";print_r($_SERVER);
 
-//$con = mysqli_connect('localhost','root','','php');
-//$mysql = mysqli_query($con,"SELECT *from users");
 
-	//$name = isset($_POST['username'])? $_POST['username'] : '';
-	//$password = isset($_POST['password'])? $_POST['password'] : '';
-
-if(isset($_POST['username']) && $_POST['username'] !='' || isset($_POST['password']) && $_POST['password'] !=''){
-
-  //header("location: welcome.php");
-	echo "Hi";
-
-}
-
- header("location: index.php");
-
-
-
-/*
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-
+	
 	$name = isset($_POST['username'])? $_POST['username'] : '';
 	$password = isset($_POST['password'])? $_POST['password'] : '';
+    include 'database.php';
 
-	//if($name !="" && $password !=""){
-	while($user = mysqli_fetch_assoc($mysql) ) {  
+    $sql = "select *from users where user_id ='$name' and user_pass ='$password'";
+    $query = mysqli_query($conn,$sql);    
 
-		if($name == $user["user_id"] && $password == $user["user_pass"]){
-			
+     if(mysqli_num_rows($query) > 0){
+
+     	$user = mysqli_fetch_assoc($query);
+
+		if($name == $user['user_id'] && $password == $user['user_pass']){	
 		 	//header("location: dashboard.php");
-	        echo "<h1>Welcome ".$name." "." Your password is ".$password."</h1>";       
-	        
+	        echo "<h1>Welcome ".$name." "." Sisaudiya. Your password is ".$password."</h1>";
+	       //echo "<pre>"; print_r($result);        
 		}
-	}
-}else{
+     }else{
+     	echo "Record not found";
+     }
 
-	//header("location: /");
+      
+
 }
-*/
-
 
 ?>
 
